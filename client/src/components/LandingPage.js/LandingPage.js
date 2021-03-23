@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { getPokemons } from "../../actions/getPokemons";
@@ -13,16 +13,13 @@ const handleClick = () => {
     props.getTypes()
     props.getCreate()
 }
-// useEffect(() => {
-//   props.getPokemons()
- 
-// }, []);
+
 
   return (
     <div>
       
       <Link to="/pokemons">
-        <button onClick={() => handleClick()}>Entrar!</button>
+        <button onClick={handleClick}>Entrar!</button>
       </Link>
 
     </div>

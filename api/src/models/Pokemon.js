@@ -12,6 +12,9 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      set(val) {
+        this.setDataValue("name", val.toLowerCase());
+      },
     },
     health: {
       type: DataTypes.INTEGER,
@@ -33,6 +36,7 @@ module.exports = (sequelize) => {
     },
     sprite: {
       type: DataTypes.TEXT,
-    }
+    },
+   
   });
 };

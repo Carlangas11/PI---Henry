@@ -7,11 +7,14 @@ module.exports = async (req, res) => {
     return res.status(404).send("=(");
   });
   const names = type.data.results.map((n) => n.name);
+ 
   for (let i = 0; i < names.length; i++) {
     await Tipos.findOrCreate({
       where: { name: names[i] },
     });
   }
   const types = await Tipos.findAll();
-  res.json(types.map((t) => t.name));
+  const enviar = types.slice(0,-2)
+ 
+  res.json(enviar.map((t) => t.name));
 };

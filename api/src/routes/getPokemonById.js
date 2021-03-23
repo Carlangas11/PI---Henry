@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
   console.log(idPokemon);
   if (idPokemon < 20000) {
     const poke = await axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${idPokemon}`)
+      .get(`https://pokeapi.co/api/v2/pokemon/${idPokemon}/`)
       .catch((e) => {
         return res.status(404).send("=(");
       });

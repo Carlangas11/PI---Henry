@@ -7,13 +7,13 @@ module.exports = async (req, res) => {
   const pokeName = req.query.name;
 
   if (!pokeName) {
-    if (index < 20) {
+    if (index < 40) {
       const resp = await getPokemonsAPI(
         index,
         [],
         "https://pokeapi.co/api/v2/pokemon"
       );
-      index = index + 20;
+      index = index + 40;
       for (let i = 0; i < resp.length; i++) {
         let encontrado = pokemon.find((p) => p.pokeId === resp[i].pokeId);
         if (!encontrado) pokemon.push(resp[i]);
@@ -22,20 +22,17 @@ module.exports = async (req, res) => {
       res.json(pokemon);
     } else {
       const resp = await getPokemonsAPI(index, pokemon);
-      index = index + 20;
+      index = index + 40;
       for (let i = 0; i < resp.length; i++) {
         let encontrado = pokemon.find((p) => p.pokeId === resp[i].pokeId);
+        
         if (!encontrado) pokemon.push(resp[i]);
       }
-
-
-    
-    
-      
+     
       pokemon.sort(function (a, b) {
         return a.pokeId - b.pokeId;
       });
-      // console.log(enviar)
+    
 
       res.json(pokemon);
     }

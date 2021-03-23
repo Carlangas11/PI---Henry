@@ -1,3 +1,5 @@
+import { ADDPOKEMON } from "../actions/addPokemons";
+import { FILTERTYPES } from "../actions/FilterTypes";
 import { GETCREATE } from "../actions/getCreate";
 import { GETDETAILS } from "../actions/getDetails";
 import { GETNAME } from "../actions/getName";
@@ -10,6 +12,8 @@ const initialState = {
   pokemonHome: [],
   types: [],
   pokemonCreate: [],
+  pokemonFilter: [],
+  CreateFilter: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -44,6 +48,18 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pokemonCreate: action.payload,
       };
+      case ADDPOKEMON:
+        return{
+          ...state
+        }
+    
+      case FILTERTYPES:
+        return {
+          ...state,
+          pokemonFilter: state.pokemonHome.filter(r => r.tipos[0] === action.payload ),
+          CreateFilter: state.pokemonCreate.filter(r => r.tipos[0] == action.payload || r.tipos[1] == action.payload),
+        }
+     
     default:
       return { ...state };
   }
