@@ -1,5 +1,5 @@
 const { Pokemon, conn } = require('../../src/db.js');
-const { expect } = require('chai');
+const  expect  = require('chai');
 
 describe('Pokemon model', () => {
   before(() => conn.authenticate()
@@ -8,15 +8,50 @@ describe('Pokemon model', () => {
     }));
   describe('Validators', () => {
     beforeEach(() => Pokemon.sync({ force: true }));
-    describe('name', () => {
-      it('should throw an error if name is null', (done) => {
+    describe('Pokemon creation', () => {
+      it('should throw error if name is null', (done) => {
         Pokemon.create({})
-          .then(() => done(new Error('It requires a valid name')))
+          .then(() => done('should not have been created'))
           .catch(() => done());
       });
-      it('should work when its a valid name', () => {
-        Pokemon.create({ name: 'Pikachu' });
+      it('should throw error if pokeId is null', (done) => {
+        Pokemon.create({ name: 'Pikachu' })
+        .then(()=> done('should not have been created'))
+        .catch(()=>done());
       });
+      it('should throw error if pokeId is String', (done) => {
+        Pokemon.create({ name: 'Pikachu' ,pokeId: 'Trece' })
+        .then(()=> done('should not have been created'))
+        .catch(()=>done());
+      });
+      it('should throw error if name is a number', (done) => {
+        Pokemon.create({ name: 18 ,pokeId: 'eleven' })
+        .then(()=> done('should not have been created'))
+        .catch(()=>done());
+      });
+      xit('should be created if name is a "String" and pokeId is a number', (done) => {
+        Pokemon.create({ name: 'Pikachu',pokeId: 25 })
+        .then(()=> done())
+        .catch(()=>done('should not have been created'));
+      });
+
+
+
+
     });
   });
 });
+
+
+// const {
+//   id,
+//   name,
+//   weight,
+//   height,
+//   health,
+//   attack,
+//   defense,
+//   speed,
+//   tipo1,
+//   tipo2
+// }

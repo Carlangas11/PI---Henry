@@ -20,7 +20,7 @@ function App() {
           <Route path="/pokemons" render={()=><NavBar/>} />
           <Route path="/pokemons" component={SearchBar} />
           <Switch>
-            <Route exact path="/pokemons" component={Home} />
+            <Route exact path="/pokemons" component={()=><Home/>} />
             <Route
               exact
               path="/pokemons/id/:pokeId"

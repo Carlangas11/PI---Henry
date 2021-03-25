@@ -15,6 +15,6 @@ module.exports = async (req, res) => {
   }
   const types = await Tipos.findAll();
   const enviar = types.slice(0,-2)
- 
+ console.log(enviar.map((t) => t.name))
   res.json(enviar.map((t) => t.name));
 };

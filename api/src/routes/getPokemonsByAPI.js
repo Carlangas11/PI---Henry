@@ -5,7 +5,7 @@ var index = 0;
 let pokemon = [];
 module.exports = async (req, res) => {
   const pokeName = req.query.name;
-
+//try{
   if (!pokeName) {
     if (index < 40) {
       const resp = await getPokemonsAPI(
@@ -75,5 +75,6 @@ module.exports = async (req, res) => {
 
       res.json(pokemon);
     }
+//}
   }
 };

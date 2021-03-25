@@ -9,7 +9,7 @@ const PokeDetails = (props) => {
   let pokemonId = props.match.params.pokeId;
   useEffect(() => {
     props.getDetails(pokemonId);
-  },[getDetails]);
+  },[pokemonId]);
 
   return (
     <div>

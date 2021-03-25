@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from 'react-redux'
 import { addPokemons } from "../../actions/addPokemons";
 
-const AddPokemon = (props) => {
-const [pokemon, setPokemon] = useState({
+export function AddPokemon(props) {
+const [pokemon, setPokemon] = React.useState({
   id:'', 
   name:'', 
   health:'', 
@@ -12,7 +12,6 @@ const [pokemon, setPokemon] = useState({
   speed:'', 
   height:'', 
   weight:'', 
- 
   tipo1:'',
   tipo2:''
 })
@@ -28,9 +27,9 @@ const handleChange = (e) => {
 }
 const handlesubmit = (e) => {
   e.preventDefault();
-props.addPokemon(pokemon)
+props.addPokemons(pokemon)
 }
-console.log(props.state)
+
   return (
     <div>
       <form onSubmit={handlesubmit}>
@@ -74,6 +73,7 @@ console.log(props.state)
             <div >
             <label>Tipo 1:</label>
             <select name="tipo1"value={pokemon.tipo1.value} onChange={handleChange}>
+            <option value=""></option>
             <option value={props.state[0]}>{props.state[0]}</option>
             <option value={props.state[1]}>{props.state[1]}</option>
             <option value={props.state[2]}>{props.state[2]}</option>
@@ -138,7 +138,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addPokemon: poke => dispatch(addPokemons(poke))
+    addPokemons: poke => dispatch(addPokemons(poke))
   }
 }
 
