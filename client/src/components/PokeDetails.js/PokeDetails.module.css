@@ -18,3 +18,21 @@
 .subcontainer{
     width: 50%;
 }
+
+.subcontainerstats{
+    font-size: 43px;
+    width: 50%;
+    margin: 10px;
+    height: 100%;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.316);
+}
+.img{
+    height: 400px;
+}
+Li{
+    list-style-type: none;
+}
+.typeImg{
+    height: 50px;
+}

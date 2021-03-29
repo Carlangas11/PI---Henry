@@ -20,7 +20,7 @@ const PokeDetails = (props) => {
               <h4>
                 #{props.state.pokeId - 10000} {props.state.name}{" "}
               </h4>
-              <img src={props.state.sprite} alt="No esta" />
+              <img className={style.img} src={props.state.sprite} alt="No esta" />
             </div>
           ) : (
             <div className={style.subcontainer}>
@@ -28,12 +28,13 @@ const PokeDetails = (props) => {
                 Creado #{props.state.pokeId - 20000} {props.state.name}
               </h4>
               <img
+              className={style.img}
                 src="/images/pokecreado_details.png"
                 alt="No esta"
               />
             </div>
           )}
-          <div className={style.subcontainer}>
+          <div className={style.subcontainerstats}>
             <ul>
               <li>HP: {props.state.health}</li>
               <li>weight: {props.state.weight}</li>
