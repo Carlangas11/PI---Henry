@@ -1,18 +1,15 @@
 .App {
   text-align: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  justify-content: center;
-  
-
+width: 100%;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
-img {
-  height: 150px;
-  width: 150px;
-}
+
+
+
 
 .App-logo {
   height: 40vmin;

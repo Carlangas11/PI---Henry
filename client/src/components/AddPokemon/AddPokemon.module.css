@@ -1,0 +1,66 @@
+.container{
+    width: 100%;
+    min-height:750px;
+    padding-top: 150px;
+    background-image: url("https://mcdn.wallpapersafari.com/medium/39/99/VJY871.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.input{
+    width: 70%;
+    padding: 6px 10px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.subcontainerform {
+    font-size: 25px;
+    max-width:800px;
+	height: 100%;
+	background: #f4f7f8;
+    margin: 0 10px;
+padding: 40px 20px;
+	background: #f4f7f8;
+	border-radius: 8px;
+	
+}
+.button{ 
+    width: 60%;
+    background-color: #b52ca9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+.select{
+    width: 70%;
+    padding: 6px 10px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.subcontainerform2{
+    max-width: 300px;
+	max-height: 100%;
+	background: #f4f7f8;
+    margin: 0 10px;
+padding: 30px 10px;
+	background: #f4f7f8;
+	border-radius: 8px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}

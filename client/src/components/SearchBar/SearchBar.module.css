@@ -1,0 +1,65 @@
+.Nav{
+  height: 116px;
+  background-color: #333;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+top: 0;
+width:100%;
+}
+.ulnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ 
+ 
+}
+
+.homeimg{
+  margin: 0;
+  width: 250px;
+  height: 100%;
+}
+A{
+  text-decoration: none;
+
+}
+.navlink{
+  font-size: 45px;
+  height: 88px
+ 
+ 
+ 
+}
+h3 {
+  padding: 0;
+  margin: 0;
+}
+.linav {
+  float: left;
+  display: flex;
+  align-items: center;
+ 
+}
+
+
+.linav .navlink {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+.linav A:hover {
+  background-color: rgb(179, 156, 24);
+}
+
+
+.lastli{
+  float:right;
+  margin: 30px 30px 30px 0;
+  
+}

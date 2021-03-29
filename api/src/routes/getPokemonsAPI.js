@@ -22,7 +22,8 @@ const getPokemonsAPI = async (index = 0,pokemons = [], url = nextUrl ) => {
       r.name === "murkrow" ||
       r.name === "phanpy" ||
       r.name === "sliggoo" ||
-      r.name === "aipom"
+      r.name === "aipom" ||
+      r.name == "porygon"
     ) {
       return r.url.slice(0, -1);
     } else {
@@ -35,7 +36,7 @@ const getPokemonsAPI = async (index = 0,pokemons = [], url = nextUrl ) => {
     });
    
     console.log(poke.data.id+10000)
-    if(poke.data.id>898) return pokemons
+    if(poke.data.id>40) return pokemons
   
    if(pokemons.length>0){
    

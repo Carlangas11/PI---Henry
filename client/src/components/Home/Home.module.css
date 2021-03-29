@@ -1,0 +1,17 @@
+.home {
+  display:flex;
+  flex-direction: column;
+ padding-top: 116px;
+  width: 100%;
+  min-height: 1080px;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18faa704-c576-476e-956a-f25172132625/dbcfb5p-6208f192-dbcc-4466-af1c-9303152d7528.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMThmYWE3MDQtYzU3Ni00NzZlLTk1NmEtZjI1MTcyMTMyNjI1XC9kYmNmYjVwLTYyMDhmMTkyLWRiY2MtNDQ2Ni1hZjFjLTkzMDMxNTJkNzUyOC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.kKZ7Dpw7Ndt_ZZQlDOZwofjB95Z5ASfWKkr0TY077qY");
+  background-position: center center;
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  background-size:cover;
+}
+  
+
+.containers {
+  height:  100%;
+}

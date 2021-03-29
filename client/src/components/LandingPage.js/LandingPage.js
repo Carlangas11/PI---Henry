@@ -5,6 +5,10 @@ import { getPokemons } from "../../actions/getPokemons";
 import { GetTypes } from "../../actions/getTypes";
 import { GetCreate } from "../../actions/getCreate";
 
+import style from './LandingPage.module.css'
+
+
+
 
 const LandingPage = (props) => {
 
@@ -16,11 +20,14 @@ const handleClick = () => {
 
 
   return (
-    <div>
-      
-      <Link to="/pokemons">
-        <button onClick={handleClick}>Entrar!</button>
-      </Link>
+    <div className={style.welcome}>
+    <div className={style.containerImg}>
+    <Link onClick={handleClick} to="/pokemons">
+  <img className={style.homeimg} src="https://fontmeme.com/permalink/210326/1ab04c648f623a5abf36ea88eb5c3cb5.png"  alt="imagen obtenida en https://fontmeme.com/"/>
+  </Link>
+  </div>
+   
+    
 
     </div>
   );

@@ -1,0 +1,66 @@
+.containerPokemon { 
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    
+}
+
+
+.pokecard{
+    width: 180px;
+    height: 300px;
+    margin: 30px 5px 10px 5px;
+  border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background-color: rgba(240, 240, 240, 0.575);
+    text-decoration: none;
+    
+}
+
+.pokecard:hover{
+        background-color: rgba(117, 117, 117, 0.575);
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
+   color: yellow;
+
+
+}
+
+
+
+.containerType {
+    margin: auto;
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.typeImg {
+   
+    width: 60px;
+    height: 20px;
+}
+
+.pokeimg{
+    width: 150px ;
+    height: 150px;
+    margin: auto;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(39, 27, 9);
+    font-size: 20px;
+  }

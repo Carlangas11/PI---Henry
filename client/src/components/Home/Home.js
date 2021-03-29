@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { GetCreate } from "../../actions/getCreate";
 import { getDetails } from "../../actions/getDetails";
 import { getPokemons } from "../../actions/getPokemons";
 import { GetTypes } from "../../actions/getTypes";
 
-import "./Home.css";
-import Pagination from "./Pagination";
-import { Pokemons } from "./Pokemons";
+import Pagination from "./components/Pagination";
+import { Pokemons } from "./components/Pokemons";
+import PokeName from "./components/PokeName";
+import PokeSearched from "./components/PokeSearched";
+
+import style from "./Home.module.css";
 
 const Home = (props) => {
   //store
@@ -39,9 +41,14 @@ const Home = (props) => {
   };
 
   useEffect(() => {
-    Default()
     props.getCreate();
-    if (pokemons.length < 897)setEjecutar(true);
+    setPokeCreado(props.pokemonCreate);
+  }, []);
+
+  useEffect(() => {
+    Default();
+    props.getCreate();
+    if (pokemons.length < 40) setEjecutar(true);
   }, [props.state]);
 
   // // llenar store
@@ -50,9 +57,9 @@ const Home = (props) => {
     setPagina(numero);
     if (ejecutar) {
       props.getCreate();
-      props.getPokemons();
+      // props.getPokemons();
       props.getTypes();
-       setEjecutar(false);
+      setEjecutar(false);
     }
   };
 
@@ -60,17 +67,15 @@ const Home = (props) => {
     if (e.target.value === "Todos") {
       Default();
       setShowTypes(false);
-      if (pokemons.length < 898) setEjecutar(true);
-    }else
-    if (e.target.value === "PokeCreados") {
+      if (pokemons.length < 40) setEjecutar(true);
+    } else if (e.target.value === "PokeCreados") {
       setPokemons(props.pokemonCreate);
       setPokeCreado([]);
       setCurrentPage(1);
       setPagina(1);
       setShowTypes(false);
       setEjecutar(false);
-    }else
-    if (e.target.value === "PokeOriginales") {
+    } else if (e.target.value === "PokeOriginales") {
       Default();
       setPokemons(props.state);
       setPokeCreado([]);
@@ -78,8 +83,7 @@ const Home = (props) => {
       setPagina(1);
       setShowTypes(false);
       setEjecutar(false);
-    }else
-    if (e.target.value === "Tipos") {
+    } else if (e.target.value === "Tipos") {
       Default();
       setShowTypes(true);
       setEjecutar(false);
@@ -104,7 +108,6 @@ const Home = (props) => {
   let pokemon = pokemons.concat(pokeCreado);
 
   const handleChange2 = (e) => {
-    
     if (e.target.value === "Numero") {
       pokemons.sort(function (a, b) {
         return a.pokeId - b.pokeId;
@@ -124,7 +127,7 @@ const Home = (props) => {
       setEjecutar(false);
       setShowTypes(false);
     }
-    if (e.target.value === "Nombre ascendente") {
+    if (e.target.value === "A-Z") {
       pokemon.sort(function (a, b) {
         if (a.name > b.name) {
           return 1;
@@ -139,7 +142,7 @@ const Home = (props) => {
       setEjecutar(false);
       setShowTypes(false);
     }
-    if (e.target.value === "Nombre descendente") {
+    if (e.target.value === "Z-A") {
       pokemon.sort(function (a, b) {
         if (a.name < b.name) {
           return 1;
@@ -179,81 +182,28 @@ const Home = (props) => {
   );
 
   return (
-    <div className="App">
-      <div>
-        {props.loading ? (
-          <div className="poke">
-            <div>
-              {props.pokeDetails.pokeId < 20000 ? (
-                <h4>#{props.pokeDetails.pokeId - 10000} </h4>
-              ) : (
-                <h4>Creado #{props.pokeDetails.pokeId - 20000} </h4>
-              )}{" "}
-              {props.pokeDetails.pokeId < 20000 ? (
-                <Link to={`/pokemons/id/${props.pokeDetails.pokeId - 10000}`}>
-                  {props.pokeDetails.name}
-                </Link>
-              ) : (
-                <Link to={`/pokemons/id/${props.pokeDetails.pokeId}`}>
-                  {props.pokeDetails.name}
-                </Link>
-              )}
-            </div>
-            {props.pokeDetails.pokeId < 20000 ? (
-              <img src={props.pokeDetails.sprite} alt="Esperando!" />
-            ) : (
-              <img
-                src="https://i.pinimg.com/564x/35/77/7a/35777a82ba036602cc75f281bf1fb20d.jpg"
-                alt="Esperando!"
-              />
-            )}
-            <ul>
-              {props.pokeDetails.tipos.map((t) => (
-                <li key={props.pokeDetails.tipos.indexOf(t)}>{t}</li>
-              ))}
-            </ul>
-          </div>
-        ) : (
-          ""
-        )}
+    <div className={style.home}>
+      <div className={style.containers}>
+        <PokeName
+          handleFilters={handleFilters}
+          handleTypes={handleTypes}
+          handleChange2={handleChange2}
+          showTypes={showTypes}
+          types={types}
+        />
+      </div> 
+      <div className={style.containers}>
+        <PokeSearched />
       </div>
-
-      <div className="pagination">
-        <form>
-          <label>Filtra por: </label>
-          <select onChange={handleFilters}>
-          <option value=""></option>
-            <option name="Todos">Todos</option>
-            <option name="PokeOriginales">PokeOriginales</option>
-            <option name="PokeCreados">PokeCreados</option>
-            <option name="Tipos">Tipos</option>
-          </select>
-          {showTypes ? (
-            <select onChange={handleTypes}>
-              <option></option>
-              {types.map((type) => (
-                <option key={type}>{type}</option>
-              ))}
-            </select>
-          ) : (
-            ""
-          )}
-          <label>Ordena por: </label>
-          <select onChange={handleChange2}>
-          <option value=""></option>
-            <option name="Numero">Numero</option>
-            <option name="ascendente">Nombre ascendente</option>
-            <option name="descendente">Nombre descendente</option>
-            <option name="Fuerza">Fuerza</option>
-          </select>
-        </form>
-
+      <div className={style.containers}>
         <Pokemons
           pokemons={pokemons}
           pokemon={currentPokemons}
           types={types}
           pagina={pagina}
         />
+      </div>
+      <div className={style.containers}>
         <Pagination
           pokemonsPerPage={pokemonsPerPage}
           totalPokemons={pokemon.length}

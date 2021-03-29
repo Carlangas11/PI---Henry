@@ -1,5 +1,22 @@
 import React from 'react'
-import "./Pagination.css";
+
+import styled from 'styled-components'
+import style from './Pagination.module.css'
+
+
+const ButtonPag = styled.button`
+color:  rgb(179, 156, 24);
+  font-size: 0.75em;
+ 
+  border: 2px solid  rgb(179, 156, 24);
+  border-radius: 3px;
+
+
+`
+
+
+
+
 const Pagination = ({pokemonsPerPage, totalPokemons, ejecutar, handleClick ,indexOfLastPage, indexOfFirstPage}) => {
 
     const pageNumbers = [];
@@ -8,15 +25,15 @@ const Pagination = ({pokemonsPerPage, totalPokemons, ejecutar, handleClick ,inde
     }
     // const showPages = pageNumbers.slice(indexOfFirstPage,indexOfLastPage)
     return (
-        <div className="container">
+        <div className={style.pagination}>
             
            
            {     pageNumbers.map(number => 
             (<div key={number}>
             
-                <button onClick={() => handleClick(number)} >
+                <ButtonPag onClick={() => handleClick(number)} >
                     {number}
-                </button>
+                </ButtonPag>
             </div>))}
             
             

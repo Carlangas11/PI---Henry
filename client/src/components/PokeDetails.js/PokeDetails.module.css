@@ -1,0 +1,20 @@
+.container{
+    width: 100%;
+    min-height:750px;
+    padding-top: 116px;
+    background-image: url("https://mcdn.wallpapersafari.com/medium/7/97/OVJPgY.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+ 
+
+}
+
+.subcontainer{
+    width: 50%;
+}
